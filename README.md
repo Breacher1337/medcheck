@@ -5,6 +5,7 @@ MedCheck is a community-driven tool designed for rural areas in the Philippines 
 ## ✨ Features
 
 ### 🔐 Authentication & User Management
+
 - **Better Auth v1.2.8** - Modern authentication system
 - Google OAuth integration
 - Session management with database persistence
@@ -12,6 +13,7 @@ MedCheck is a community-driven tool designed for rural areas in the Philippines 
 - Account linking for multiple providers
 
 ### 💳 Subscription & Billing
+
 - **Polar.sh** integration for subscription management
 - Two-tier pricing: Free & Standard
 - Real-time webhook processing
@@ -20,11 +22,13 @@ MedCheck is a community-driven tool designed for rural areas in the Philippines 
 - Payment gating with elegant overlays
 
 ### 🤖 AI Integration
+
 - **Vertex AI** powered system
 - React Markdown rendering for rich responses
 - Multi-step conversation support
 
 ### 🎨 Modern UI/UX
+
 - **Tailwind CSS v4** - Latest utility-first styling
 - **shadcn/ui** components - Accessible, customizable
 - **Radix UI** primitives - Unstyled, accessible components
@@ -33,6 +37,7 @@ MedCheck is a community-driven tool designed for rural areas in the Philippines 
 - Loading skeletons and optimistic UI updates
 
 ### 🗄️ Database & Storage
+
 - **Neon PostgreSQL** - Serverless database
 - **Drizzle ORM** - Type-safe database toolkit
 - **Cloudflare R2** - Scalable file storage with zero egress fees
@@ -40,6 +45,7 @@ MedCheck is a community-driven tool designed for rural areas in the Philippines 
 - Drag & drop file uploads with progress tracking
 
 ### 📊 Analytics & Monitoring
+
 - **PostHog** integration for product analytics
 - User behavior tracking
 - Custom event monitoring
@@ -61,6 +67,7 @@ MedCheck is a community-driven tool designed for rural areas in the Philippines 
 ## 🛠️ Quick Start
 
 ### Prerequisites
+
 - Node.js 18+
 - PostgreSQL database (Neon recommended)
 - Cloudflare R2 bucket for file storage
@@ -71,17 +78,20 @@ MedCheck is a community-driven tool designed for rural areas in the Philippines 
 ### Installation
 
 1. **Clone the repository**
+
 ```bash
 git clone <repository-url>
 cd medcheck
 ```
 
 2. **Install dependencies**
+
 ```bash
 npm install
 ```
 
 3. **Database Setup**
+
 ```bash
 # Generate and run migrations
 npm run db:generate
@@ -89,6 +99,7 @@ npm run db:push
 ```
 
 7. **Start Development Server**
+
 ```bash
 npm run dev
 ```
@@ -98,17 +109,20 @@ Open [http://localhost:3000](http://localhost:3000) to see your application.
 ## 🎯 MVP
 
 ### Subscription Management
+
 - Automatic subscription status checking
 - Payment gating for premium features
 - Integration with Polar.sh customer portal
 - Webhook handling for real-time updates
 
 ### AI Chat Integration
+
 - Built-in chatbot with Vertex AI
 - Markdown rendering for rich responses
 - Conversation history and context
 
 ### File Upload System
+
 - **Cloudflare R2 integration** with S3-compatible API
 - **Drag & drop interface** with visual feedback
 - **File validation** - Type checking and size limits
@@ -117,6 +131,7 @@ Open [http://localhost:3000](http://localhost:3000) to see your application.
 - **Copy URLs** - Easy sharing and integration
 
 ### Analytics & Tracking
+
 - PostHog event tracking
 - User behavior monitoring
 - Custom analytics dashboard
@@ -124,17 +139,20 @@ Open [http://localhost:3000](http://localhost:3000) to see your application.
 ## 🔧 WIP
 
 ### Adding New Features
+
 1. Create components in `components/`
 2. Add API routes in `app/api/`
 3. Update database schema in `db/schema.ts`
 4. Run `npx drizzle-kit generate` and `npx drizzle-kit push`
 
 ### Styling
+
 - Modify `app/globals.css` for global styles
 - Use Tailwind classes for component styling
 - Customize theme in `tailwind.config.ts`
 
 ### Authentication
+
 - Configure providers in `lib/auth/auth.ts`
 - Add new OAuth providers as needed
 - Customize user profile fields in database schema
@@ -150,12 +168,38 @@ Open [http://localhost:3000](http://localhost:3000) to see your application.
 ## 🚀 Deployment
 
 ### Vercel
+
 1. Connect GitHub repository to Vercel
 2. Add environment variables in Vercel dashboard
 3. Deploy automatically on every push
 
 ### Manual Deployment
+
 ```bash
 npm run build
 npm start
+```
+
+### Set up for MULTI-AGENT AI
+
+run
+
+```bash
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+Create `main_root_agent/.env` with at least the following for local development and deployment:
+
+```bash
+# Required
+GOOGLE_GENAI_USE_VERTEXAI=FALSE
+GOOGLE_CLOUD_LOCATION=your-google-api-key
+```
+
+lastly to run
+
+```bash
+adk web
 ```
